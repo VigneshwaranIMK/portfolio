@@ -646,6 +646,9 @@ p {
 
   }
 
+  .download {
+    cursor: pointer;
+  }
   .navbar.active {
       display: flex;
 
@@ -662,6 +665,29 @@ p {
     .particles-js-canvas-el{
       top: 70px !important;
     }
+
+    input {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+  .error {
+      color: red;
+      font-size: 14px;
+  }
+  button {
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+  }
+  button:hover {
+      background: #218838;
+  }
 }
 
 @media screen and (max-width:768px) {
@@ -677,11 +703,17 @@ p {
   .about{
     padding-top: 0;
   }
+  .download {
+    cursor: pointer;
+  }
 
 }
 
 @media screen and (min-width: 1024px) {
   .menu-toggle{
     display: none;
+  }
+  .download {
+    cursor: pointer;
   }
 }
