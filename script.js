@@ -158,3 +158,53 @@ function toggleMenu() {
           }
         });
       });
+
+      //social links
+
+    //   document.addEventListener("DOMContentLoaded", function () {
+    //     document.getElementById("github").href = "https://github.com/vigneshwarananimk";
+    //     document.getElementById("instagram").href = "https://www.instagram.com/keezhai_vignesh";
+    //     document.getElementById("linkedin").href = "https://www.linkedin.com/in/vigneshwaranimk";
+    // });
+
+
+
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+        let isValid = true;
+
+        // Name Validation (Only letters, at least 3 characters)
+        let name = document.getElementById("name").value.trim();
+        let nameError = document.getElementById("nameError");
+        if (name.length < 3 || !/^[a-zA-Z\s]+$/.test(name)) {
+            nameError.textContent = "Name must be at least 3 letters (only alphabets allowed).";
+            isValid = false;
+        } else {
+            nameError.textContent = "";
+        }
+
+        // Email Validation (HTML5 built-in)
+        let email = document.getElementById("email").value.trim();
+        let emailError = document.getElementById("emailError");
+        if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+            emailError.textContent = "Enter a valid email address.";
+            isValid = false;
+        } else {
+            emailError.textContent = "";
+        }
+
+        // Subject Validation (Minimum 5 characters)
+        let subject = document.getElementById("subject").value.trim();
+        let subjectError = document.getElementById("subjectError");
+        if (subject.length < 5) {
+            subjectError.textContent = "Subject must be at least 5 characters long.";
+            isValid = false;
+        } else {
+            subjectError.textContent = "";
+        }
+
+        if (!isValid) {
+            event.preventDefault(); // Prevent form submission if validation fails
+        }
+    });
+    
+    console.log("Script loaded successfully!");

@@ -16,14 +16,14 @@
         <span class="js-count-particles">--</span> particles
       </div> -->
 
-      
+
 
     <header class="nav">
         <nav class="navbar-container">
             <div class="menu-toggle" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
-            <ul  class="navbar">
+            <ul class="navbar">
                 <li><a href="#intro"> <i class="fas fa-home"></i> Home </a></li>
                 <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
                 <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
@@ -32,7 +32,7 @@
                 <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
-    
+
     </header>
     <div id="particles-js"></div>
 
@@ -40,13 +40,14 @@
         <div class="intro-text">
             <h1>Hello, It's Me<br><span>Vigneshwaran</span><br>And I'm a <span class="typing-animation">Web Dev</span>
             </h1>
-            <p>I'm a PHP web Developer with 1 year experience. My expertise is in HRMS Applications, Web Design, Build
-                ERP Softwares and much more....</p>
+            <p>I'm a PHP web Developer with 7 months experience. My expertise is in HRMS Applications, Web Design, Build
+                ERP Softwares using Laravel , PHP , MySql and web technologies.. </p>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/vigneshwaranimk/"><i class="fab fa-linkedin"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
-            <a href="documents/Vigneshwaran_Resume.pdf" class="btn download" download>Download Resume &nbsp; <i class="fas fa-download"></i></a>
+            <a href="documents/Vigneshwaran_Resume.pdf" class="btn download" download>Download Resume &nbsp; <i
+                    class="fas fa-download"></i></a>
         </div>
         <div class="intro-image">
             <img src="Vigneshwaran.jpeg" alt="Vigneshwaran">
@@ -80,7 +81,7 @@
         <div class="services-container">
             <div class="service-box">
                 <div class="hrms-container">
-                    <div class="service-icon hrms"><img class="" src="images/hrms.jpg" alt="HRMS APP"></div>
+                    <div class="service-icon hrms"><img class="" src="/public/images/hrms.jpg" alt="HRMS APP"></div>
                 </div>
                 <h3>HRMS Application</h3>
                 <p style="font-weight: bold; text-align:left">A Human Resource Management System (HRMS) is a
@@ -91,7 +92,7 @@
             </div>
             <div class="service-box">
                 <div class="hrms-container">
-                    <div class="service-icon hrms"><img class="" src="images/LMS 2.jpeg" alt="LMS APP"></div>
+                    <div class="service-icon hrms"><img class="" src="/public/images/LMS 2.jpeg" alt="LMS APP"></div>
                 </div>
                 <h3>LMS Applications</h3>
                 <p style="font-weight: bold; text-align:left">A Learning Management System (LMS) is a software
@@ -102,7 +103,7 @@
             </div>
             <div class="service-box">
                 <div class="hrms-container">
-                    <div class="service-icon hrms"><img class="" src="images/PMS.jpg" alt="LMS APP"></div>
+                    <div class="service-icon hrms"><img class="" src="/public/images/PMS.jpg" alt="LMS APP"></div>
                 </div>
                 <h3>PMS Applications</h3>
                 <p style="font-weight: bold; text-align:left"> A Performance Management System (PMS) is a structured
@@ -228,23 +229,27 @@
             <div class="contact-info">
                 <h2>Contact <span>Me</span></h2>
                 <p>Let's Work Together</p>
-                <p><strong>Email:</strong> <a href="mailto:vigneshwaranimk@gmail.com">vigneshwaranimk@gmail.com</a></p>
-                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vigneshwaranimk"
-                        target="_blank">linkedin.com/in/vigneshwaranimk</a></p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/vigneshwaranimk" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/keezhai_vignesh" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/vigneshwaranimk" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:vigneshwaranimk@gmail.com" target="_blank" class="fa fa-envelope"></a>
                 </div>
             </div>
             <div class="contact-form">
-                <form action="#">
-                    <input type="text" placeholder="Enter Your Name" required>
-                    <input type="email" placeholder="Enter Your Email" required>
-                    <input type="text" placeholder="Enter Your Subject" required>
-                    <textarea placeholder="Enter Your Message" required></textarea>
-                    <button type="submit" class="btn">Submit</button>
+                <form id="myForm">
+                    <input type="text" id="name" placeholder="Enter Your Name" required>
+                    <span class="error" id="nameError"></span>
+
+                    <input type="email" id="email" placeholder="Enter Your Email" required>
+                    <span class="error" id="emailError"></span>
+
+                    <input type="text" id="subject" placeholder="Enter Your Subject" required minlength="5">
+                    <span class="error" id="subjectError"></span>
+
+                    <button class="btn btn-sm" type="submit">Submit</button>
                 </form>
             </div>
         </div>
@@ -280,6 +285,7 @@
         };
         requestAnimationFrame(update);
     </script>
+    
 </body>
 
 </html>
