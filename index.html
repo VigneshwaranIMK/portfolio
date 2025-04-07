@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        emailjs.init("smzv_lU7OilbWF6e9"); // Replace with your EmailJS public key
+      </script>
 </head>
 
 <body>
@@ -290,7 +294,60 @@
         };
         requestAnimationFrame(update);
     </script>
-    
+    <script>
+        // Initialize EmailJS with your public key
+        emailjs.init("smzv_lU7OilbWF6e9"); // Replace with your actual public key
+      
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+          event.preventDefault(); // Stop form from submitting the default way
+      
+          let isValid = true;
+      
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const subject = document.getElementById("subject").value.trim();
+      
+          console.log(name, email, subject);
+          // Clear previous errors
+          document.getElementById("nameError").textContent = "";
+          document.getElementById("emailError").textContent = "";
+          document.getElementById("subjectError").textContent = "";
+      
+          // Name Validation
+          if (name.length < 3 || !/^[a-zA-Z\s]+$/.test(name)) {
+            document.getElementById("nameError").textContent = "Name must be at least 3 letters.";
+            isValid = false;
+          }
+      
+          // Email Validation
+          if (!/^\S+@\S+\.\S+$/.test(email)) {
+            document.getElementById("emailError").textContent = "Enter a valid email address.";
+            isValid = false;
+          }
+      
+          // Subject Validation
+          if (subject.length < 5) {
+            document.getElementById("subjectError").textContent = "Subject must be at least 5 characters.";
+            isValid = false;
+          }
+      
+          if (!isValid) return;
+      
+          // Send email using EmailJS
+          emailjs.send("service_oe15iaj", "template_i16dqy5", {
+            from_name: name,
+            from_email: email,
+            subject: subject
+          })
+          .then(function(response) {
+            alert("✅ Message sent successfully!");
+            document.getElementById("myForm").reset();
+          }, function(error) {
+            alert("❌ Failed to send message. Please try again.");
+            console.error("EmailJS Error:", error);
+          });
+        });
+      </script>
 </body>
 
 </html>
