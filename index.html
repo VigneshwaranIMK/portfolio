@@ -12,16 +12,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         emailjs.init("smzv_lU7OilbWF6e9"); // Replace with your EmailJS public key
-      </script>
+    </script>
 </head>
 
 <body>
-    <!-- <div class="count-particles">
-        <span class="js-count-particles">--</span> particles
-      </div> -->
-
-
-
     <header class="nav">
         <nav class="navbar-container">
             <div class="menu-toggle" onclick="toggleMenu()">
@@ -51,7 +45,8 @@
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
 
-            <a href="documents/Vigneshwaran_Resume.pdf" class="btn download" target="_blank" >Download Resume &nbsp; <i class="fas fa-download"></i></a>
+            <a href="documents/Vigneshwaran_Resume.pdf" class="btn download" target="_blank">Download Resume &nbsp; <i
+                    class="fas fa-download"></i></a>
         </div>
         <div class="intro-image">
             <img src="vigneshwaran.jpeg" alt="Vigneshwaran">
@@ -69,7 +64,8 @@
             <p>
                 Skilled Web Designer & Developer with over 7 months of experience in creating visually appealing and
                 user-friendly websites. A results-driven web developer with expertise in HTML, CSS, JavaScript, and
-                responsive design, along with basic knowledge in angular with laravel backend API and three months of experience in database administration  like xampp server,  MySQL and PostgreSQL.
+                responsive design, along with basic knowledge in angular with laravel backend API and three months of
+                experience in database administration like xampp server, MySQL and PostgreSQL.
                 Passionate about crafting seamless digital experiences and committed to delivering innovative
                 solutions.
                 Seeking opportunities to apply technical expertise and creativity in a dynamic web development role.
@@ -272,82 +268,92 @@
     <!-- scripts -->
     <script src="particles.js"></script>
     <script src="js/app.js"></script>
-
     <!-- stats.js -->
     <script src="js/lib/stats.js"></script>
     <script>
-        var count_particles, stats, update;
-        stats = new Stats;
-        stats.setMode(0);
-        stats.domElement.style.position = 'absolute';
-        stats.domElement.style.left = '0px';
-        stats.domElement.style.top = '0px';
-        document.body.appendChild(stats.domElement);
-        count_particles = document.querySelector('.js-count-particles');
-        update = function () {
-            stats.begin();
-            stats.end();
-            if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-                count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-            }
-            requestAnimationFrame(update);
-        };
-        requestAnimationFrame(update);
-    </script>
-    <script>
         // Initialize EmailJS with your public key
-        emailjs.init("smzv_lU7OilbWF6e9"); // Replace with your actual public key
-      
-        document.getElementById("myForm").addEventListener("submit", function(event) {
-          event.preventDefault(); // Stop form from submitting the default way
-      
-          let isValid = true;
-      
-          const name = document.getElementById("name").value.trim();
-          const email = document.getElementById("email").value.trim();
-          const subject = document.getElementById("subject").value.trim();
-      
-          console.log(name, email, subject);
-          // Clear previous errors
-          document.getElementById("nameError").textContent = "";
-          document.getElementById("emailError").textContent = "";
-          document.getElementById("subjectError").textContent = "";
-      
-          // Name Validation
-          if (name.length < 3 || !/^[a-zA-Z\s]+$/.test(name)) {
-            document.getElementById("nameError").textContent = "Name must be at least 3 letters.";
-            isValid = false;
-          }
-      
-          // Email Validation
-          if (!/^\S+@\S+\.\S+$/.test(email)) {
-            document.getElementById("emailError").textContent = "Enter a valid email address.";
-            isValid = false;
-          }
-      
-          // Subject Validation
-          if (subject.length < 5) {
-            document.getElementById("subjectError").textContent = "Subject must be at least 5 characters.";
-            isValid = false;
-          }
-      
-          if (!isValid) return;
-      
-          // Send email using EmailJS
-          emailjs.send("service_oe15iaj", "template_i16dqy5", {
-            from_name: name,
-            from_email: email,
-            subject: subject
-          })
-          .then(function(response) {
-            alert("✅ Message sent successfully!");
-            document.getElementById("myForm").reset();
-          }, function(error) {
-            alert("❌ Failed to send message. Please try again.");
-            console.error("EmailJS Error:", error);
-          });
+        emailjs.init("smzv_lU7OilbWF6e9"); // ✅ Your actual public key
+
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submit
+
+            let isValid = true;
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const subject = document.getElementById("subject").value.trim();
+
+            // Clear previous errors
+            document.getElementById("nameError").textContent = "";
+            document.getElementById("emailError").textContent = "";
+            document.getElementById("subjectError").textContent = "";
+
+            // Name Validation
+            if (name.length < 3 || !/^[a-zA-Z\s]+$/.test(name)) {
+                document.getElementById("nameError").textContent = "Name must be at least 3 letters.";
+                isValid = false;
+            }
+
+            // Email Validation
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                document.getElementById("emailError").textContent = "Enter a valid email address.";
+                isValid = false;
+            }
+
+            // Subject Validation
+            if (subject.length < 5) {
+                document.getElementById("subjectError").textContent = "Subject must be at least 5 characters.";
+                isValid = false;
+            }
+
+            if (!isValid) return;
+
+            // ✅ Send email using EmailJS with template variables
+            emailjs.send("service_oe15iaj", "template_i16dqy5", {
+                form_name: name,       // Matches {{form_name}} in template
+                form_email: email,     // Matches {{form_email}} in template
+                subject: subject       // Matches {{subject}} in template
+            })
+                .then(function (response) {
+                    alert("✅ Message sent successfully!");
+                    document.getElementById("myForm").reset();
+                }, function (error) {
+                    alert("❌ Failed to send message. Please try again.");
+                    console.error("EmailJS Error:", error);
+                });
         });
-      </script>
+    </script>
+
 </body>
+
+<script>
+    var count_particles, stats, update;
+    stats = new Stats();
+    stats.setMode(0);
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '0px';
+    stats.domElement.style.top = '0px';
+    document.body.appendChild(stats.domElement);
+
+    count_particles = document.querySelector('.js-count-particles');
+
+    update = function () {
+        stats.begin();
+        stats.end();
+
+        if (
+            window.pJSDom &&
+            window.pJSDom[0].pJS.particles &&
+            window.pJSDom[0].pJS.particles.array &&
+            count_particles
+        ) {
+            count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+        }
+
+        requestAnimationFrame(update);
+    };
+
+    requestAnimationFrame(update);
+</script>
 
 </html>
