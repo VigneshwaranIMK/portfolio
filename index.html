@@ -121,9 +121,7 @@
         <div class="about-image">
 
             <div class="about-bg"></div>
-
-            <img src="profile_ms.jpeg" alt="Vigneshwaran">
-
+            <img src="images/profile_ms.jpeg" alt="Vigneshwaran">
         </div>
 
         <div class="about-content">
@@ -705,7 +703,14 @@
         };
         requestAnimationFrame(update);
     </script>
+        <script>
+        const menu = document.querySelector(".menu-toggle");
+        const navLinks = document.querySelector(".nav-links");
 
+        menu.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    </script>
 </body>
 
 </html>
